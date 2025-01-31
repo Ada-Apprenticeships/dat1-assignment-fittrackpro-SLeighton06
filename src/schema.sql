@@ -57,7 +57,8 @@ CREATE TABLE staff (
     phone_number VARCHAR(32),
     position VARCHAR(16),
     hire_date DATE,
-    location_id INTEGER
+    location_id INTEGER,
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 
 CREATE TABLE equipment (
@@ -67,7 +68,8 @@ CREATE TABLE equipment (
     purchase_date DATE,
     last_maintenance_date DATE,
     next_maintenance_date DATE,
-    location_id INTEGER
+    location_id INTEGER,
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 
 CREATE TABLE classes (
@@ -76,7 +78,8 @@ CREATE TABLE classes (
     description VARCHAR(32),
     capacity INTEGER,
     duration INTEGER,
-    location_id INTEGER
+    location_id INTEGER,
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 
 CREATE TABLE class_schedule (
@@ -84,7 +87,9 @@ CREATE TABLE class_schedule (
     class_id INTEGER,
     staff_id INTEGER,
     start_time DATE,
-    end_time DATE
+    end_time DATE,
+    FOREIGN KEY (class_id) REFERENCES classes(class_id),
+    FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
 
 CREATE TABLE memberships (
@@ -93,7 +98,8 @@ CREATE TABLE memberships (
     type VARCHAR(32),
     start_date DATE,
     end_date DATE,
-    status VARCHAR(32)
+    status VARCHAR(32),
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
 CREATE TABLE attendance (
@@ -101,14 +107,18 @@ CREATE TABLE attendance (
     member_id INTEGER,
     location_id INTEGER,
     check_in_time DATE,
-    check_out_time DATE
+    check_out_time DATE,
+    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 
 CREATE TABLE class_attendance (
     class_attendance_id INTEGER PRIMARY KEY,
     schedule_id INTEGER,
     member_id INTEGER,
-    attendance_status VARCHAR(32)
+    attendance_status VARCHAR(32),
+    FOREIGN KEY (schedule_id) REFERENCES class_schedule(schedule_id),
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
 CREATE TABLE payments (
@@ -117,7 +127,8 @@ CREATE TABLE payments (
     amount INTEGER,
     payment_date DATE,
     payment_method VARCHAR(32),
-    payment_type VARCHAR(32)
+    payment_type VARCHAR(32),
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
 CREATE TABLE personal_training_sessions (
@@ -127,7 +138,9 @@ CREATE TABLE personal_training_sessions (
     session_date DATE,
     start_time DATE,
     end_time DATE,
-    notes VARCHAR(32)
+    notes VARCHAR(32),
+    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
 
 CREATE TABLE member_health_metrics (
@@ -137,7 +150,8 @@ CREATE TABLE member_health_metrics (
     weight INTEGER,
     body_fat_percentage INTEGER,
     muscle_mass INTEGER,
-    bmi INTEGER
+    bmi INTEGER,
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
 CREATE TABLE equipment_maintenance_log (
@@ -145,7 +159,9 @@ CREATE TABLE equipment_maintenance_log (
     equipment_id INTEGER,
     maintenance_date DATE,
     description VARCHAR(32),
-    staff_id INTEGER
+    staff_id INTEGER,
+    FOREIGN KEY (equipment_id) REFERENCES equipment(equipment_id),
+    FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
 
 -- After creating the tables, you can import the sample data using:
