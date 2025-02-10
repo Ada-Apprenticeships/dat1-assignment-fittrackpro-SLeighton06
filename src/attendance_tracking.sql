@@ -3,11 +3,14 @@
 .mode column
 
 -- Enable foreign key support
+PRAGMA foreign_keys = ON;
 
 -- Attendance Tracking Queries
 
 -- 1. Record a member's gym visit
 -- TODO: Write a query to record a member's gym visit
+INSERT INTO attendance (member_id, location_id, check_in_time)
+VALUES (7, 1, DATETIME('now'));
 
 -- 2. Retrieve a member's attendance history
 -- TODO: Write a query to retrieve a member's attendance history
