@@ -3,6 +3,7 @@
 .mode column
 
 -- Enable foreign key support
+PRAGMA foreign_keys = ON;
 
 -- User Management Queries
 
@@ -36,7 +37,6 @@ WHERE registered_count = (SELECT MAX(registered_count) FROM registered_counts);
 
 -- 5. Find member with the least class registrations
 -- TODO: Write a query to find the member with the least class registrations
--- NOTE: This can be reused from the previous query, but was added here as well to ensure each query works by itself
 WITH registered_counts AS (
     SELECT m.member_id, m.first_name, m.last_name, COUNT(ca.member_id) AS registered_count
     FROM members m
