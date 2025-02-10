@@ -221,7 +221,7 @@ Use this as a checklist to keep track of your progress.
 3. [X] 1.3 Count total number of members
 4. [X] 1.4 Find member with the most class registrations
 5. [X] 1.5 Find member with the least class registrations
-6. [ ] 1.6 Calculate the percentage of members who have attended at least one class
+6. [X] 1.6 Calculate the percentage of members who have attended at least one class
 
 #### 2. Payment Management (payment_management.sql)
 1. [ ] 2.1 Record a payment for a membership
