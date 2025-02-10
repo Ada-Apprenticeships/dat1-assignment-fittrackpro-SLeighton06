@@ -219,8 +219,8 @@ Use this as a checklist to keep track of your progress.
 1. [X] 1.1 Retrieve all members
 2. [X] 1.2 Update a member's contact information
 3. [X] 1.3 Count total number of members
-4. [ ] 1.4 Find member with the most class registrations
-5. [ ] 1.5 Find member with the least class registrations
+4. [X] 1.4 Find member with the most class registrations
+5. [X] 1.5 Find member with the least class registrations
 6. [ ] 1.6 Calculate the percentage of members who have attended at least one class
 
 #### 2. Payment Management (payment_management.sql)

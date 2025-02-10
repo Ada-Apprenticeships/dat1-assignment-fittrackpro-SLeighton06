@@ -24,9 +24,27 @@ FROM members;
 
 -- 4. Find member with the most class registrations
 -- TODO: Write a query to find the member with the most class registrations
+WITH registered_counts AS (
+    SELECT m.member_id, m.first_name, COUNT(ca.member_id) AS registered_count
+    FROM members m
+    LEFT JOIN class_attendance ca ON m.member_id = ca.member_id AND attendance_status = 'Registered'
+    GROUP BY m.member_id, m.first_name
+)
+SELECT member_id, first_name, registered_count
+FROM registered_counts
+WHERE registered_count = (SELECT MAX(registered_count) FROM registered_counts);
 
 -- 5. Find member with the least class registrations
 -- TODO: Write a query to find the member with the least class registrations
+WITH registered_counts AS (
+    SELECT m.member_id, m.first_name, COUNT(ca.member_id) AS registered_count
+    FROM members m
+    LEFT JOIN class_attendance ca ON m.member_id = ca.member_id AND attendance_status = 'Registered'
+    GROUP BY m.member_id, m.first_name
+)
+SELECT member_id, first_name, registered_count
+FROM registered_counts
+WHERE registered_count = (SELECT MIN(registered_count) FROM registered_counts);
 
 -- 6. Calculate the percentage of members who have attended at least one class
 -- TODO: Write a query to calculate the percentage of members who have attended at least one class
