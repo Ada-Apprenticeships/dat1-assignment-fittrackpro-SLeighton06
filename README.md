@@ -234,11 +234,11 @@ Use this as a checklist to keep track of your progress.
 3. [ ] 3.3 Calculate average age of equipment by type (in days)
 
 #### 4. Class Scheduling (class_scheduling.sql)
-1. [ ] 4.1 List all classes with their instructors
-2. [ ] 4.2 Find available classes for a specific date
-3. [ ] 4.3 Register a member for a class
-4. [ ] 4.4 Cancel a class registration
-5. [ ] 4.5 List top 3 most popular classes
+1. [X] 4.1 List all classes with their instructors
+2. [X] 4.2 Find available classes for a specific date
+3. [X] 4.3 Register a member for a class
+4. [X] 4.4 Cancel a class registration
+5. [X] 4.5 List top 3 most popular classes
 6. [ ] 4.6 Calculate average number of classes per member
 
 #### 5. Membership Management (membership_management.sql)
