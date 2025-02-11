@@ -244,7 +244,7 @@ Use this as a checklist to keep track of your progress.
 #### 5. Membership Management (membership_management.sql)
 1. [X] 5.1 List all active memberships
 2. [X] 5.2 Calculate the average duration of gym visits for each membership type
-3. [ ] 5.3 Identify members with expiring memberships this year
+3. [X] 5.3 Identify members with expiring memberships this year
 
 #### 6. Attendance Tracking (attendance_tracking.sql)
 1. [X] 6.1 Record a member's gym visit
