@@ -250,7 +250,7 @@ Use this as a checklist to keep track of your progress.
 1. [X] 6.1 Record a member's gym visit
 2. [X] 6.2 Retrieve a member's attendance history
 3. [X] 6.3 Find the busiest day of the week based on gym visits
-4. [ ] 6.4 Calculate the average daily attendance for each location
+4. [X] 6.4 Calculate the average daily attendance for each location
 
 #### 7. Staff Management (staff_management.sql)
 1. [X] 7.1 List all staff members by role
