@@ -21,14 +21,14 @@ WHERE member_id = 5;
 -- 3. Find the busiest day of the week based on gym visits
 -- TODO: Write a query to find the busiest day of the week based on gym visits
 SELECT CASE CAST (STRFTIME('%w', check_in_time) AS integer)
-  WHEN 0 THEN 'Sunday'
-  WHEN 1 THEN 'Monday'
-  WHEN 2 THEN 'Tuesday'
-  WHEN 3 THEN 'Wednesday'
-  WHEN 4 THEN 'Thursday'
-  WHEN 5 THEN 'Friday'
-  ELSE 'Saturday' END AS day_of_week,
-  COUNT(*) AS visit_count
+    WHEN 0 THEN 'Sunday'
+    WHEN 1 THEN 'Monday'
+    WHEN 2 THEN 'Tuesday'
+    WHEN 3 THEN 'Wednesday'
+    WHEN 4 THEN 'Thursday'
+    WHEN 5 THEN 'Friday'
+    ELSE 'Saturday' END AS day_of_week,
+    COUNT(*) AS visit_count
 FROM attendance
 GROUP BY day_of_week
 ORDER BY COUNT(*) DESC LIMIT 1;
