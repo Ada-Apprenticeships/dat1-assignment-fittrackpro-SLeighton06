@@ -17,5 +17,5 @@ ORDER BY position;
 -- TODO: Write a query to find trainers with one or more personal training session in the next 30 days
 SELECT s.staff_id, (first_name || ' ' || last_name) AS trainer_name, pt.session_date
 FROM staff s
-LEFT JOIN personal_training_sessions pt ON s.staff_id = pt.staff_id
+INNER JOIN personal_training_sessions pt ON s.staff_id = pt.staff_id
 WHERE pt.session_date BETWEEN DATE('now') AND DATE('now','30 days')

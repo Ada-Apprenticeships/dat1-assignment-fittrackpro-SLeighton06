@@ -40,5 +40,5 @@ CASE
     WHEN COUNT(DISTINCT SUBSTR(a.check_in_time, 1, 10)) = 0 THEN 0
     ELSE CAST(COUNT(a.location_id) AS FLOAT) / COUNT(DISTINCT SUBSTR(a.check_in_time, 1, 10)) END AS avg_daily_attendance
 FROM locations l
-LEFT JOIN attendance a ON l.location_id = a.location_id
+INNER JOIN attendance a ON l.location_id = a.location_id
 GROUP BY name
