@@ -45,3 +45,6 @@ LIMIT 3;
 
 -- 6. Calculate average number of classes per member
 -- TODO: Write a query to calculate average number of classes per member
+SELECT CAST (COUNT(class_attendance_id) AS FLOAT) / COUNT(DISTINCT m.member_id) AS avg_classes_per_member
+FROM class_attendance ca
+RIGHT JOIN members m ON ca.member_id = m.member_id

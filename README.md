@@ -239,7 +239,7 @@ Use this as a checklist to keep track of your progress.
 3. [X] 4.3 Register a member for a class
 4. [X] 4.4 Cancel a class registration
 5. [X] 4.5 List top 3 most popular classes
-6. [ ] 4.6 Calculate average number of classes per member
+6. [X] 4.6 Calculate average number of classes per member
 
 #### 5. Membership Management (membership_management.sql)
 1. [X] 5.1 List all active memberships
