@@ -35,7 +35,7 @@ CREATE TABLE locations (
     name VARCHAR(32) NOT NULL,
     address VARCHAR(32) NOT NULL,
     phone_number VARCHAR(32) NOT NULL,
-    email VARCHAR(32) NOT NULL,
+    email VARCHAR(32) NOT NULL CHECK(email LIKE '%@%'),
     opening_hours VARCHAR(11) NOT NULL
 );
 
@@ -43,7 +43,7 @@ CREATE TABLE members (
     member_id INTEGER PRIMARY KEY,
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
-    email VARCHAR(32) NOT NULL,
+    email VARCHAR(32) NOT NULL CHECK(email LIKE '%@%'),
     phone_number VARCHAR(32) NOT NULL,
     date_of_birth DATE NOT NULL,
     join_date DATE NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE staff (
     staff_id INTEGER PRIMARY KEY,
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
-    email VARCHAR(32) NOT NULL,
+    email VARCHAR(32) NOT NULL CHECK(email LIKE '%@%'),
     phone_number VARCHAR(32) NOT NULL,
     position VARCHAR(16) NOT NULL CHECK(position IN ('Trainer','Manager','Receptionist','Maintenance')),
     hire_date DATE NOT NULL,
@@ -165,6 +165,8 @@ CREATE TABLE equipment_maintenance_log (
     FOREIGN KEY (equipment_id) REFERENCES equipment(equipment_id),
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
+
+.read scripts/sample_data.sql
 
 -- After creating the tables, you can import the sample data using:
 -- `.read data/sample_data.sql` in a sql file or `npm run import` in the terminal
