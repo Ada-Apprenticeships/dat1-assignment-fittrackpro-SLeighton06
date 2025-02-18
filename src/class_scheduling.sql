@@ -11,15 +11,13 @@ PRAGMA foreign_keys = ON;
 -- TODO: Write a query to list all classes with their instructors
 SELECT cs.class_id, c.name, (s.first_name || ' ' || s.last_name) AS instructor_name
 FROM class_schedule cs
-INNER JOIN classes c ON cs.class_id = c.class_id
-INNER JOIN staff s ON cs.staff_id = s.staff_id;
+INNER JOIN classes c, staff s ON cs.class_id = c.class_id AND cs.staff_id = s.staff_id;
 
 -- 2. Find available classes for a specific date
 -- TODO: Write a query to find available classes for a specific date
 SELECT cs.class_id, c.name, start_time, end_time, capacity - COUNT(ca.schedule_id) AS available_spots
 FROM class_schedule cs
-INNER JOIN classes c ON cs.class_id = c.class_id
-INNER JOIN class_attendance ca ON cs.schedule_id = ca.schedule_id
+INNER JOIN classes c, class_attendance ca ON cs.class_id = c.class_id AND cs.schedule_id = ca.schedule_id
 WHERE SUBSTR(start_time, 1, 10) = '2025-02-01'
 GROUP BY cs.schedule_id;
 
